@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "306f01cf-f5a5-481e-a02a-3eb75e97652c",
+		"name": "Drone Management System APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16336313"
+	},
+	"item": [
+		{
+			"name": "getAllDrones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/drones/allDrones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drones",
+						"allDrones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "newDrone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"x\":2,\r\n    \"y\":2,\r\n    \"direction\":\"EAST\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/drones/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drones",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get drone position from drone Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/drones/1/position",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drones",
+						"1",
+						"position"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Move drone",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/drones/3/move?newX=2&newY=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drones",
+						"3",
+						"move"
+					],
+					"query": [
+						{
+							"key": "newX",
+							"value": "2"
+						},
+						{
+							"key": "newY",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
