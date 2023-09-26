@@ -1,8 +1,8 @@
-# Drone Management System <hr/>
+# Drone Management System
 
 This application simulates the management of drone within a farm field. The field has a designated area of 10x10 square meters. The API endpoints can perform various functions on the drone.
 
-## Execution <hr/>
+## Execution
 
 To start the application just run:
 
@@ -13,7 +13,7 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-## Run Tests <hr/>
+## Run Tests
 
 To run the tests:
 
@@ -21,7 +21,7 @@ To run the tests:
 mvn test
 ```
 
-## APIs <hr/>
+## APIs
 
 ### Register a Drone
 
@@ -43,6 +43,6 @@ mvn test
 <b>Endpoint:</b> `GET /drones/allDrones´ <br/>
 <b>Description:</b> Get all the registered Drones.
 
-## Postman Collection <hr/>
+## Postman Collection
 <a href="https://www.postman.com/payload-astronomer-65399392/workspace/drone-management-system/collection/16336313-306f01cf-f5a5-481e-a02a-3eb75e97652c?action=share&creator=16336313">Postman Collection </a>
 
