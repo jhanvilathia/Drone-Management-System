@@ -33,10 +33,10 @@ public class DroneControllerTest {
 
     @Test
     public void testRegisterDrone() {
-        // Create a mock DroneDTO to simulate the request body
+
+        // Create a mock DroneDTO
         DroneDTO mockDroneDTO = new DroneDTO(1, 2, Direction.NORTH);
 
-        // Mock the service call
         when(droneService.registerDrone(mockDroneDTO)).thenReturn(mockDroneDTO);
 
         ResponseEntity<DroneDTO> response = droneController.registerDrone(mockDroneDTO);
@@ -47,15 +47,14 @@ public class DroneControllerTest {
 
     @Test
     public void testMoveDrone() {
+
         // Mock request parameters
         Long droneId = 1L;
         int newX = 3;
         int newY = 4;
 
-        // Create a mock updated DroneDTO to simulate the service response
         DroneDTO mockUpdatedDroneDTO = new DroneDTO(3, 4, Direction.EAST);
 
-        // Mock the service call
         when(droneService.moveDrone(droneId, newX, newY)).thenReturn(mockUpdatedDroneDTO);
 
         ResponseEntity<DroneDTO> response = droneController.moveDrone(droneId, newX, newY);
@@ -67,12 +66,12 @@ public class DroneControllerTest {
 
     @Test
     public void testGetAllDrones() {
-        // Create a list of mock DroneDTOs
+
+        // Mock list of DroneDTOs
         List<DroneDTO> mockDroneDTOs = new ArrayList<>();
         mockDroneDTOs.add(new DroneDTO(1, 2, Direction.NORTH));
         mockDroneDTOs.add(new DroneDTO(3, 4, Direction.WEST));
 
-        // Mock the service call
         when(droneService.getAllDrones()).thenReturn(mockDroneDTOs);
 
         List<DroneDTO> response = droneController.getAllDrones();
@@ -82,13 +81,11 @@ public class DroneControllerTest {
 
     @Test
     public void testGetCurrentPosition() {
-        // Mock drone ID
-        Long droneId = 1L;
 
-        // Create a mock DroneDTO to simulate the service response
+        // Mock DroneDTO to get Current Position
+        Long droneId = 1L;
         DroneDTO mockCurrentPosition = new DroneDTO(3, 4, Direction.EAST);
 
-        // Mock the service call
         when(droneService.getCurrentPosition(droneId)).thenReturn(mockCurrentPosition);
 
         ResponseEntity<DroneDTO> response = droneController.getCurrentPosition(droneId);
@@ -99,10 +96,10 @@ public class DroneControllerTest {
 
     @Test
     public void testGetCurrentPositionNotFound() {
-        // Mock drone ID for a non-existent drone
+
+        // Mock non existent DroneDTO
         Long nonExistentDroneId = 99L;
 
-        // Mock the service call to return null (drone not found)
         when(droneService.getCurrentPosition(nonExistentDroneId)).thenReturn(null);
 
         ResponseEntity<DroneDTO> response = droneController.getCurrentPosition(nonExistentDroneId);

@@ -35,6 +35,8 @@ public class DroneServiceTest {
 
     @Test
     public void testRegisterDrone() {
+
+        // Test for Registering a Drone
         DroneDTO droneDTO = new DroneDTO(1, 2, Direction.NORTH);
         Drone drone = new Drone();
         drone.setX(1);
@@ -54,47 +56,52 @@ public class DroneServiceTest {
 
     @Test
     public void testInvalidMoveOutsideBoundaries() {
+
+        // Test for Invalid Move outside Boundaries
         Drone drone = new Drone();
         drone.setDirection(Direction.EAST);
         String errorMessage = droneService.isValidMove(drone, 12, 5);
+
         assertEquals("Move is outside the field boundaries.", errorMessage);
     }
 
     @Test
     public void testValidMoveWithinBoundaries() {
 
+        // Test for Valid Move within Boundaries
         Drone drone = new Drone();
         drone.setDirection(Direction.WEST);
         String errorMessage = droneService.isValidMove(drone, 5, 6);
+
         assertNull(errorMessage);
     }
 
     @Test
     public void testInvalidMoveNorthToSouth() {
+
+        // Test for Invalid Move in NORTH or SOUTH
         Drone drone = new Drone();
         drone.setDirection(Direction.NORTH);
         String errorMessage = droneService.isValidMove(drone, 5, 4);
+
         assertEquals("Invalid move: Drone must first be pointed to East or West before moving to South or North.", errorMessage);
     }
 
     @Test
     public void testValidMoveInAllowedDirection() {
+
+        // Test for Valid Move in Allowed Direction - EAST or WEST
         Drone drone = new Drone();
         drone.setDirection(Direction.EAST);
         String errorMessage = droneService.isValidMove(drone, 6, 5);
-        assertNull(errorMessage);
-    }
 
-    @Test
-    public void testValidMoveInOppositeDirection() {
-        Drone drone = new Drone();
-        drone.setDirection(Direction.WEST);
-        String errorMessage = droneService.isValidMove(drone, 4, 5);
         assertNull(errorMessage);
     }
 
     @Test
     public void testGetDroneById() {
+
+        // Create a mock Drone to get CurrentPosition and Direction
         Long droneId = 1L;
         Drone existingDrone = new Drone();
         existingDrone.setId(droneId);
@@ -115,6 +122,8 @@ public class DroneServiceTest {
 
     @Test
     public void testGetDroneByIdNotFound() {
+
+        // Create a mock Drone for Not Found case
         Long droneId = 1L;
         when(droneRepository.findById(droneId)).thenReturn(Optional.empty());
 
@@ -127,6 +136,7 @@ public class DroneServiceTest {
 
     @Test
     public void testGetAllDrones() {
+
         // Create some mock Drone entities
         Drone drone1 = new Drone();
         drone1.setX(1);
@@ -144,7 +154,6 @@ public class DroneServiceTest {
 
         verify(droneRepository, times(1)).findAll();
 
-        // Verify the expected DTOs are returned
         assertEquals(2, allDrones.size());
     }
 

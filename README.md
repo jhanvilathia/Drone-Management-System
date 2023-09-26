@@ -1,4 +1,4 @@
-# Coding Challenge: Drone Management System
+# Drone Management System
 
 ## Objective:
 
@@ -8,7 +8,7 @@
 
 ### Register a Drone:
 
-Create an API endpoint that allows registering a new drone. 
+Create an API endpoint that allows registering a new drone.
 Each drone should have the following attributes:
 
 - **Position (X, Y) within the field**
@@ -30,12 +30,3 @@ Create an API endpoint that allows retrieving the current position and direction
 
 The field is a 10x10 square grid (X and Y coordinates range from 0 to 9).
 The drone's initial position and direction can be set during registration.
-
-### Submission:
-
-Create a pull request for the shared github repository.
-Include clear instructions on how to build, run, and test your application in the README.md file.
-
-## Note:
-
-Feel free to add additional APIs or redesign APIs,  use any additional libraries or tools you deem necessary for completing this challenge. Good luck, and happy coding!
